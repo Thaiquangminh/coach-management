@@ -1,6 +1,6 @@
 <template>
   <section>
-    <BaseCard>
+    <BaseCard >
       <header>
         <h2>Requested Received</h2>
       </header>

@@ -1,6 +1,6 @@
 // import { v1 } from 'uuid'
 export default {
-  async handleAddCoach(context, payload) {
+  async handleRegisterAsCoach(context, payload) {
     const userId = context.rootGetters.getUserId
     const coachData = {
       // id: v1(),
@@ -11,7 +11,9 @@ export default {
       hourlyRate: payload.rate
     }
 
-    await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/coaches/${userId}.json`, {
+    const token = context.rootGetters.getToken
+
+    await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token, {
       method: 'PUT',
       body: JSON.stringify(coachData)
     })

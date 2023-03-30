@@ -18,9 +18,9 @@ import { mapActions } from 'vuex';
 export default {
   components: { CoachForm, BaseCard },
   methods: {
-    ...mapActions('coaches', ['handleAddCoach']),
+    ...mapActions('coaches', ['handleRegisterAsCoach']),
     handleFormData(data) {
-      this.handleAddCoach(data)
+      this.handleRegisterAsCoach(data)
       this.$router.replace('/coaches')
     }
   }

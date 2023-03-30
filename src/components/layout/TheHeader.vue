@@ -8,13 +8,40 @@
         <li>
           <router-link to='/coaches'>All Coaches</router-link>
         </li>
-        <li>
+        <li v-if='isLoggedIn'>
           <router-link to='/requests'>Requests</router-link>
+          <BaseButton @click='handleLogout' mode='flat' class='logoutBtn'>Logout</BaseButton>
+
         </li>
+        <li v-else-if='!isLoggedIn'>
+          <router-link to='/auth'>Login</router-link>
+        </li>
+
       </ul>
     </nav>
   </header>
 </template>
+<script>
+  import BaseButton from '@/components/ui/BaseButton.vue';
+  import { mapActions } from 'vuex';
+
+  export default {
+    components: { BaseButton },
+    computed: {
+      isLoggedIn() {
+        return this.$store.getters.getIsAuthenticated
+      },
+    },
+    methods: {
+      ...mapActions(['logout']),
+      handleLogout() {
+        this.logout()
+        this.$router.push('/auth')
+
+      }
+    }
+  }
+</script>
 <style scoped>
 header {
   width: 100%;
@@ -73,5 +100,10 @@ header ul {
 
 li {
   margin: 0 0.5rem;
+}
+
+.logoutBtn {
+  color: #ffffff;
+  margin-left: 20px;
 }
 </style>

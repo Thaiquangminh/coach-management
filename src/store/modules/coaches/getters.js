@@ -8,7 +8,6 @@ export default {
   },
   isCoach(state, getters, rootState, rootGetters) {
     const coaches = state.coaches
-    console.log(coaches);
     const userId = rootGetters.getUserId
     return coaches.some(coach => coach.id === userId)
   }

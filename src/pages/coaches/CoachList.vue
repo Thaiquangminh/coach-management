@@ -7,7 +7,8 @@
       <BaseCard>
         <div class='controls'>
           <BaseButton mode='outline' @click='handleGetCoachesList'>Refresh</BaseButton>
-          <BaseButton v-if='!userIsCoach' link='true' to='register' >Register as Coach</BaseButton>
+          <BaseButton v-if='isLoggedIn && !userIsCoach' link='true' to='register' >Register as Coach</BaseButton>
+          <BaseButton v-if='!isLoggedIn' link='true' to='auth?redirect=register' >Login to register as Coach</BaseButton>
         </div>
         <BaseSpinner v-if='loading'/>
         <ul v-else-if='hasCoach'>
@@ -48,8 +49,10 @@
     },
     computed: {
       ...mapGetters('coaches', ['isCoach', 'getCoaches']),
+      isLoggedIn() {
+        return this.$store.getters.getIsAuthenticated
+      },
       userIsCoach() {
-        console.log(this.isCoach);
         return this.isCoach
       },
       filterGetCoaches() {

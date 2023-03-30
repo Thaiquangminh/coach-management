@@ -7,6 +7,13 @@
 <!--  </router-view>-->
   <router-view></router-view>
 </template>
+<script >
+  export default {
+    created() {
+      this.$store.dispatch('keepLogin')
+    }
+  }
+</script>
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 

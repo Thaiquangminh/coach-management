@@ -20,9 +20,9 @@ export default {
 
   async handleGetRequests(context) {
     const coachId = context.rootGetters.getUserId
-    const response = await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/requests/${coachId}.json`)
+    const token = context.rootGetters.getToken
+    const response = await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=` + token)
     const data = await response.json()
-    console.log(data);
     const requests = []
     for(const key in data) {
       const newRequest = {
