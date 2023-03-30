@@ -63,13 +63,13 @@
       filterGetCoaches() {
         const coaches = this.getCoaches
         return coaches.filter(coach => {
-          if(this.activeFilter.frontend && coach.areas.includes('frontend')) {
+          if(this.activeFilter.frontend && coach.areas?.includes('frontend')) {
             return true
           }
-          if(this.activeFilter.backend && coach.areas.includes('backend')) {
+          if(this.activeFilter.backend && coach.areas?.includes('backend')) {
             return true
           }
-          if(this.activeFilter.career && coach.areas.includes('career')) {
+          if(this.activeFilter.career && coach.areas?.includes('career')) {
             return true
           }
           return false

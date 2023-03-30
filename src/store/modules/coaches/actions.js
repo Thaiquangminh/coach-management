@@ -13,10 +13,15 @@ export default {
 
     const token = context.rootGetters.getToken
 
-    await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token, {
+    const response = await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token, {
       method: 'PUT',
       body: JSON.stringify(coachData)
     })
+
+    if(response.status !== 200) {
+      const error = new Error('Fail to register')
+      throw error
+    }
 
     context.commit('handleAddCoach', {
       ...coachData,
