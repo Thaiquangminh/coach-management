@@ -42,7 +42,7 @@
       <BaseButton class='registerBtn'>Register</BaseButton>
     </form>
     <BaseDialog :show='!isValidForm' title='Submit form failed' @close='handleClose'>
-      <p>Wrong data type. Please fix above errors and submit again.</p>
+      <p>Information incorrect. Please fix above errors and submit again.</p>
     </BaseDialog>
   </div>
 

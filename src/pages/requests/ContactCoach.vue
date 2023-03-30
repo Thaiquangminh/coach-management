@@ -3,11 +3,13 @@
       <BaseCard>
         <div class='formControl'>
           <label for='email'>Your E-Mail</label>
-          <input type='text' id='email' v-model='email'>
+          <input type='text' id='email' v-model.trim='email.value' @blur='clearValidate("email")'>
+          <p v-if='!email.isValid' class='helperText'>Invalid email</p>
         </div>
         <div class='formControl'>
           <label for='message'>Message</label>
-          <textarea rows='5' id='message' v-model='message' />
+          <textarea rows='5' id='message' v-model.trim='message.value' @blur='clearValidate("message")'/>
+          <p v-if='!message.isValid' class='helperText'>Message should not be empty</p>
         </div>
         <div class='actions'>
           <BaseButton>Send Message</BaseButton>
@@ -26,20 +28,44 @@
     components: { BaseCard, BaseButton },
     data() {
       return {
-        email: '',
-        message: ''
+        email: {
+          value: '',
+          isValid: true
+        },
+        message: {
+          value: '',
+          isValid: true
+        },
+        validForm: true
       }
     },
     methods: {
       ...mapActions('request', ['handleAddRequest']),
       handleSubmit() {
+        this.validateForm()
+        if(!this.validForm) {
+          return;
+        }
         const contactValue = {
-          email: this.email,
-          message: this.message,
+          email: this.email.value,
+          message: this.message.value,
           coachId: this.$route.params.id
         }
         this.handleAddRequest(contactValue)
         this.$router.push('/coaches')
+      },
+      validateForm() {
+        if(this.email.value === '' || !this.email.value.includes('@')) {
+          this.email.isValid = false
+          this.validForm = false
+        }
+        if(this.message.value === '') {
+          this.message.isValid = false
+          this.validForm = false
+        }
+      },
+      clearValidate(input) {
+        this[input].isValid = true
       }
     }
   }
@@ -87,9 +113,8 @@
     outline: none;
   }
 
-  .errors {
-    font-weight: bold;
-    color: red;
+  .helperText {
+    color: #d44950;
   }
 
   .actions {

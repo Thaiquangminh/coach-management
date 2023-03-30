@@ -1,0 +1,105 @@
+[debug] [2023-03-30T15:53:47.803Z] ----------------------------------------------------------------------
+[debug] [2023-03-30T15:53:47.804Z] Command:       /opt/homebrew/Cellar/node@14/14.21.3/libexec/node /opt/homebrew/bin/firebase init
+[debug] [2023-03-30T15:53:47.805Z] CLI Version:   11.25.2
+[debug] [2023-03-30T15:53:47.805Z] Platform:      darwin
+[debug] [2023-03-30T15:53:47.805Z] Node Version:  v14.21.3
+[debug] [2023-03-30T15:53:47.806Z] Time:          Thu Mar 30 2023 22:53:47 GMT+0700 (Indochina Time)
+[debug] [2023-03-30T15:53:47.806Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-30T15:53:47.810Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-30T15:53:47.810Z] > authorizing via signed-in user (minh.thaiquang153@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/minh/Documents/Workspace/coach-management
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2023-03-30T15:54:29.975Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2023-03-30T15:54:29.975Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"coachmanagement","name":"1532000"}
+[debug] [2023-03-30T15:54:31.573Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2023-03-30T15:54:31.573Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.5501698135534217549"}
+[debug] [2023-03-30T15:54:31.574Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 [none]
+[debug] [2023-03-30T15:54:32.795Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 200
+[debug] [2023-03-30T15:54:32.795Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 {"name":"operations/cp.5501698135534217549"}
+[debug] [2023-03-30T15:54:33.297Z] [Project Creation Poller] Retrying task index 0
+[debug] [2023-03-30T15:54:33.297Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 [none]
+[debug] [2023-03-30T15:54:34.641Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 200
+[debug] [2023-03-30T15:54:34.641Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 {"name":"operations/cp.5501698135534217549","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true}}
+[debug] [2023-03-30T15:54:35.641Z] [Project Creation Poller] Retrying task index 0
+[debug] [2023-03-30T15:54:35.641Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 [none]
+[debug] [2023-03-30T15:54:36.891Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 200
+[debug] [2023-03-30T15:54:36.891Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.5501698135534217549 {"name":"operations/cp.5501698135534217549","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"651481618867","projectId":"coachmanagement","lifecycleState":"ACTIVE","name":"1532000","createTime":"2023-03-30T15:54:33.459Z"}}
+[debug] [2023-03-30T15:54:36.893Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/coachmanagement:addFirebase [none]
+[debug] [2023-03-30T15:54:40.169Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/coachmanagement:addFirebase 200
+[debug] [2023-03-30T15:54:40.169Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/coachmanagement:addFirebase {"name":"operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz"}
+[debug] [2023-03-30T15:54:40.169Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz [none]
+[debug] [2023-03-30T15:54:41.252Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz 200
+[debug] [2023-03-30T15:54:41.252Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz {"name":"operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz"}
+[debug] [2023-03-30T15:54:41.753Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-03-30T15:54:41.754Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz [none]
+[debug] [2023-03-30T15:54:42.729Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz 200
+[debug] [2023-03-30T15:54:42.729Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz {"name":"operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz"}
+[debug] [2023-03-30T15:54:43.730Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-03-30T15:54:43.731Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz [none]
+[debug] [2023-03-30T15:54:44.574Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz 200
+[debug] [2023-03-30T15:54:44.574Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz {"name":"operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz"}
+[debug] [2023-03-30T15:54:46.575Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-03-30T15:54:46.576Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz [none]
+[debug] [2023-03-30T15:54:47.747Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz 200
+[debug] [2023-03-30T15:54:47.747Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz {"name":"operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz"}
+[debug] [2023-03-30T15:54:51.749Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2023-03-30T15:54:51.749Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz [none]
+[debug] [2023-03-30T15:54:52.580Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz 200
+[debug] [2023-03-30T15:54:52.580Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz {"name":"operations/workflows/YzVkZDE2ZDUtMjlmZi00OTRkLThkYmEtZGE1YmIwYWQ3MDAz","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"coachmanagement","projectNumber":"651481618867","displayName":"1532000","name":"projects/coachmanagement","resources":{"hostingSite":"coachmanagement"}}}
+[info] 
+[info] 🎉🎉🎉 Your Firebase project is ready! 🎉🎉🎉
+[info] 
+[info] Project information:
+[info]    - Project ID: coachmanagement
+[info]    - Project Name: 1532000
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/coachmanagement/overview
+[info] i  Using project coachmanagement (1532000) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2023-03-30T15:55:14.603Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2023-03-30T15:55:14.721Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2023-03-30T15:55:14.721Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"9.18.0","browserURL":"https://www.gstatic.com/firebasejs/9.18.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/9.18.0/firebase.tgz"},"live":{"version":"9.18","browserURL":"https://www.gstatic.com/firebasejs/live/9.18/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/9.18/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/9.18.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/9.18.0/firebase-auth/cordova.js","auth/react-native":"https://www.gstatic.com/firebasejs/9.18.0/firebase-auth/react-native.js","functions":"https://www.gstatic.com/firebasejs/9.18.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/9.18.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/9.18.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/9.18.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/9.18.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/9.18.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/9.18.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js","firestore.memory":"https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.memory.js"}}
+[info] ✔  Wrote dist/index.html 
+[info] 
+[info] i  Detected a .git folder at /Users/minh/Documents/Workspace/coach-management 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=434872512&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-03-30T15:55:30.839Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2023-03-30T15:55:30.840Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2023-03-30T15:55:31.438Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2023-03-30T15:55:31.438Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2023-03-30T15:55:31.445Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2023-03-30T15:55:32.285Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2023-03-30T15:55:32.285Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"Thaiquangminh","id":113981310,"node_id":"U_kgDOBss3fg","avatar_url":"https://avatars.githubusercontent.com/u/113981310?v=4","gravatar_id":"","url":"https://api.github.com/users/Thaiquangminh","html_url":"https://github.com/Thaiquangminh","followers_url":"https://api.github.com/users/Thaiquangminh/followers","following_url":"https://api.github.com/users/Thaiquangminh/following{/other_user}","gists_url":"https://api.github.com/users/Thaiquangminh/gists{/gist_id}","starred_url":"https://api.github.com/users/Thaiquangminh/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Thaiquangminh/subscriptions","organizations_url":"https://api.github.com/users/Thaiquangminh/orgs","repos_url":"https://api.github.com/users/Thaiquangminh/repos","events_url":"https://api.github.com/users/Thaiquangminh/events{/privacy}","received_events_url":"https://api.github.com/users/Thaiquangminh/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":13,"public_gists":0,"followers":0,"following":1,"created_at":"2022-09-20T09:23:35Z","updated_at":"2023-03-27T02:02:05Z","private_gists":0,"total_private_repos":1,"owned_private_repos":1,"disk_usage":63587,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as Thaiquangminh 
+[info] 
