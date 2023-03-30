@@ -27,8 +27,10 @@ export default {
   async handleGetCoaches(context) {
     const response = await fetch(`https://coach-management-427f4-default-rtdb.firebaseio.com/coaches.json`)
     const data = await response.json()
-    if(!response.ok) {
-      //
+
+    if(response.status !== 200) {
+      const error = new Error(data.message || 'Failed to fetch!')
+      throw error
     }
     const coaches = []
     for (const key in data) {

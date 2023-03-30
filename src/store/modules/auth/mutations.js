@@ -6,7 +6,6 @@ export default {
     state.userId = payload.localId
     state.token = payload.idToken
     state.expire = payload.expiresIn
-    console.log(state);
 
   },
   logoutUser(state) {

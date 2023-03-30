@@ -7,5 +7,7 @@ export default {
   },
   getIsAuthenticated(state) {
     return Boolean(state.token)
-  }
+  },
+
+
 }

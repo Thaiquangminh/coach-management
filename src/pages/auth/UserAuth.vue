@@ -1,5 +1,8 @@
 <template>
   <div class='authWrapper'>
+    <BaseDialog :show='Boolean(error)' :title="mode === 'login' ? 'Login fail' : 'Sign up fail'" @close='handleClose'>
+      <p>{{ error }}</p>
+    </BaseDialog>
     <BaseCard>
       <div class='title'>{{submitButton}}</div>
       <form class='form' @submit.prevent='submitForm'>
@@ -27,15 +30,18 @@
 import BaseButton from '@/components/ui/BaseButton.vue';
 import BaseCard from '@/components/ui/BaseCard.vue';
 import { mapActions } from 'vuex';
+import BaseDialog from '@/components/ui/BaseDialog.vue';
 
 export default {
-  components: { BaseCard, BaseButton },
+  components: { BaseDialog, BaseCard, BaseButton },
   data() {
     return {
       email: '',
       password: '',
       isValid: true,
-      mode: 'login'
+      mode: 'login',
+      error: null,
+      successSignUp: false
     }
   },
   computed: {
@@ -69,11 +75,20 @@ export default {
       }
 
       else if(this.mode === 'signup') {
-        await this.signup({email: this.email, password: this.password})
+        try {
+          await this.signup({email: this.email, password: this.password})
+        } catch (error) {
+          this.error = error
+        }
+        this.$router.replace('/auth')
       }
 
       else if(this.mode === 'login') {
-        await this.login({email: this.email, password: this.password})
+        try {
+          await this.login({email: this.email, password: this.password})
+        } catch (error) {
+          this.error = error
+        }
         const urlRedirect = '/' + (this.$route.query.redirect || 'coaches')
         this.token && this.$router.replace(urlRedirect)
       }
@@ -85,7 +100,10 @@ export default {
       else if(this.mode === 'signup') {
         this.mode = 'login'
       }
-    }
+    },
+    handleClose() {
+      this.error = null
+    },
   }
 
 };

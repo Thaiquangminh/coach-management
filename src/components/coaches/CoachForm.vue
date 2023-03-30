@@ -2,19 +2,19 @@
     <form @submit.prevent='submitForm'>
       <div class='formControl'>
         <label for='firstname'>Firstname</label>
-        <input type='text' id='firstname' v-model='firstName'>
+        <input type='text' id='firstname' v-model.trim='firstName'>
       </div>
       <div class='formControl'>
         <label for='lastname'>Lastname</label>
-        <input type='text' id='lastname' v-model='lastName'>
+        <input type='text' id='lastname' v-model.trim='lastName'>
       </div>
       <div class='formControl'>
         <label for='description'>Description</label>
-        <textarea id='firstname' v-model='description'/>
+        <textarea id='firstname' v-model.trim='description'/>
       </div>
       <div class='formControl'>
         <label for='rate'>Hourly Rate</label>
-        <input type='number' id='rate' v-model='rate'>
+        <input type='number' id='rate' v-model.number='rate'>
       </div>
       <div class='formControl'>
         <h3 class='areasTitle'>Areas of Expertise</h3>

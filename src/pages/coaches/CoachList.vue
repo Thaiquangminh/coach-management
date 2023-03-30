@@ -1,5 +1,8 @@
 <template>
   <div>
+    <BaseDialog :show="Boolean(error)" title='An error occurred' @close='handleClose'>
+      <p>{{ error }}</p>
+    </BaseDialog>
     <section>
       <CoachFilter  @change-filter='handleFilter'></CoachFilter>
     </section>
@@ -35,8 +38,9 @@
   import CoachFilter from '@/components/coaches/CoachFilter.vue';
   import { mapActions, mapGetters } from 'vuex';
   import BaseSpinner from '@/components/ui/BaseSpinner.vue';
+  import BaseDialog from '@/components/ui/BaseDialog.vue';
   export default {
-    components: { BaseSpinner, CoachFilter, BaseButton, BaseCard, CoachItem },
+    components: { BaseDialog, BaseSpinner, CoachFilter, BaseButton, BaseCard, CoachItem },
     data() {
       return {
         activeFilter: {
@@ -45,6 +49,7 @@
           career: true
         },
         loading: false,
+        error: null
       }
     },
     computed: {
@@ -81,8 +86,16 @@
       },
       async handleGetCoachesList() {
         this.loading = true
-        await this.handleGetCoaches()
+        try {
+          await this.handleGetCoaches()
+
+        } catch (error) {
+          this.error =  "Something went wrong"
+        }
         this.loading = false
+      },
+      handleClose() {
+        this.error = null
       }
     },
     created() {

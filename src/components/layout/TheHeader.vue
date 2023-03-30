@@ -8,10 +8,10 @@
         <li>
           <router-link to='/coaches'>All Coaches</router-link>
         </li>
-        <li v-if='isLoggedIn'>
+        <li v-if='isLoggedIn' class='groupLogout'>
           <router-link to='/requests'>Requests</router-link>
           <BaseButton @click='handleLogout' mode='flat' class='logoutBtn'>Logout</BaseButton>
-
+<!--          <img class='imageAva' src='/images/avatar2.png' alt=''/>-->
         </li>
         <li v-else-if='!isLoggedIn'>
           <router-link to='/auth'>Login</router-link>
@@ -105,5 +105,14 @@ li {
 .logoutBtn {
   color: #ffffff;
   margin-left: 20px;
+}
+
+.groupLogout {
+  display: flex;
+}
+
+.imageAva {
+  height: 40px;
+  width: 40px;
 }
 </style>

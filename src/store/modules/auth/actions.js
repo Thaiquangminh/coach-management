@@ -1,3 +1,5 @@
+import store from '@/store';
+
 export default {
   async login(context, payload) {
     const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBZkE7trQ2727WfSMSacjY4bRlXilz95jM', {
@@ -9,6 +11,10 @@ export default {
       })
     })
     const data = await response.json()
+    if(response.status !== 200) {
+     const error =  new Error(data.message || 'Wrong email or password. Try again.')
+      throw error
+    }
     localStorage.setItem('token', data.idToken)
     localStorage.setItem('userId', data.localId)
     context.commit('updateUserInfo', data)
@@ -17,7 +23,6 @@ export default {
   keepLogin(context) {
     const token = localStorage.getItem('token')
     const userId = localStorage.getItem('userId')
-    console.log(token);
     if(token && userId) {
       context.commit('updateUserInfo', {
         idToken: token,
@@ -28,7 +33,7 @@ export default {
   },
 
   async signup(context, payload) {
-     await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZkE7trQ2727WfSMSacjY4bRlXilz95jM', {
+     const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBZkE7trQ2727WfSMSacjY4bRlXilz95jM', {
       method: 'POST',
       body: JSON.stringify({
         email: payload.email,
@@ -36,9 +41,16 @@ export default {
         returnSecureToken: true
       })
     })
+    console.log(response);
+    if(response.status !== 200) {
+      const error = new Error('Fail to signup. May be account is existed')
+      throw error
+    }
   },
 
   logout(context) {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
     context.commit('logoutUser')
   }
 }
