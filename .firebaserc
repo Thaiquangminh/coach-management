@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "coach-management-427f4",
+    "staging": "coach-management-427f4",
+    "coach-management": "coach-management-427f4"
+  },
+  "targets": {},
+  "etags": {}
+}

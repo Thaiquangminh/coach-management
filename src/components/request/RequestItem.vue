@@ -2,8 +2,6 @@
   <li>
     <div>
       <a :href='emailLink'>{{ email }}</a>
-      <span> has sent you a message</span>
-
     </div>
     <p>{{ message }}</p>
   </li>
